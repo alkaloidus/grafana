@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+        grafana:
+        image: grafana/grafana-oss:latest
+        container_name: grafana
+        environment:
+            - PUID=0
+            - PGID=0
+            - TZ=$tzone
+            - GF_INSTALL_PLUGINS=alexanderzobnin-zabbix-app
+        volumes:
+            - ${app_data}/grafana:/var/lib/grafana
+        ports:
+            - 3000:3000
+        restart: always
+        networks:
+            - private
+
+networks:
+    private:
+        external: true
