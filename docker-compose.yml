@@ -9,7 +9,7 @@ services:
             - TZ=$tzone
             - GF_INSTALL_PLUGINS=alexanderzobnin-zabbix-app
         volumes:
-            - ${app_data}/grafana/etc:/etc/grafana/grafana.ini
+            - ${app_data}/grafana/etc/grafana.ini:/etc/grafana/grafana.ini
             - ${app_data}/grafana/var:/var/lib/grafana
             - ${app_data}/grafana/usr:/usr/share/grafana
             - ${app_data}/grafana/var:/var/log/grafana
