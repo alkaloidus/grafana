@@ -9,13 +9,12 @@ services:
             - TZ=$tzone
             - GF_INSTALL_PLUGINS=alexanderzobnin-zabbix-app
         volumes:
-            - PATH="${app_data}/grafana:$PATH" \
-            - GF_PATHS_CONFIG="/etc/grafana/grafana.ini" \
-            - GF_PATHS_DATA="/var/lib/grafana" \
-            - GF_PATHS_HOME="/usr/share/grafana" \
-            - GF_PATHS_LOGS="/var/log/grafana" \
-            - GF_PATHS_PLUGINS="/var/lib/grafana/plugins" \
-            - GF_PATHS_PROVISIONING="/etc/grafana/provisioning"
+            - ${app_data}/grafana/etc:/etc/grafana/grafana.ini
+            - ${app_data}/grafana/var:/var/lib/grafana
+            - ${app_data}/grafana/usr:/usr/share/grafana
+            - ${app_data}/grafana/var:/var/log/grafana
+            - ${app_data}/grafana/var:/var/lib/grafana/plugins
+            - ${app_data}/grafana/etc:/etc/grafana/provisioning
 #            - ${app_data}/grafana:/var/lib/grafana
         ports:
             - 3000:3000
