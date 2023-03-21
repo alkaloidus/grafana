@@ -9,7 +9,7 @@ services:
             - TZ=$tzone
             - GF_INSTALL_PLUGINS=alexanderzobnin-zabbix-app
         volumes:
-            PATH="${app_data}/grafana:$PATH" \
+            - PATH="${app_data}/grafana:$PATH" \
             - GF_PATHS_CONFIG="/etc/grafana/grafana.ini" \
             - GF_PATHS_DATA="/var/lib/grafana" \
             - GF_PATHS_HOME="/usr/share/grafana" \
