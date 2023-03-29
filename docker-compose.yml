@@ -1,7 +1,7 @@
 version: "3.9"
 services:
     grafana:
-        image: grafana/grafana-oss:latest
+        image: grafana/grafana:latest
         container_name: grafana
         environment:
             - PUID=0
@@ -15,13 +15,16 @@ services:
 #            - ${app_data}/grafana/var:/var/log/grafana
 #            - ${app_data}/grafana/var:/var/lib/grafana/plugins
 #            - ${app_data}/grafana/etc:/etc/grafana/provisioning
-            - ${app_data}/grafana:/var/lib/grafana
+            - grafana-data:/var/lib/grafana
         ports:
             - 3000:3000
 #        user: '472'
         restart: always
         networks:
             - private
+volumes:
+  grafana-data:
+    external: true
 
 networks:
     private:
