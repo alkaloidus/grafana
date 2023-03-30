@@ -8,9 +8,10 @@ services:
             - PGID=0
             - TZ=$tzone
             - GF_INSTALL_PLUGINS=alexanderzobnin-zabbix-app
-            - GF_PATHS_CONFIG=${app_data}/grafana/grafana.ini
+#            - GF_PATHS_CONFIG=${app_data}/grafana/grafana.ini
         volumes:
             - grafana-data:/var/lib/grafana
+            - ${app_data}/grafana/grafana.ini:/etc/grafana/grafana.ini
         ports:
             - 3000:3000
         restart: always
